@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Interactive Learning Platform</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style_courses.css" asp-append-version="true" />
+
+
+    <!-- Остальные стили -->
+</head>
+<body>
+    <section class="promo" id="home">
+        <div class="container">
+            <header class="header">
+                <div class="h1">
+                    <a href="#" class="logo">
+                        <div class="logo__text">Logo <br></div>
+                    </a>
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="#Abou_ Us"> About Us</a></li>
+                            <li class="nav__item"><a href="#Courses">Courses</a></li>
+                            <li class="nav__item"><a href="#Contact">Contact</a></li>
+                            <li class="nav__item"><a href="#More">More</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="promo__sign">
+                    <button>sign up</button>
+                </div>
+            </header>
+        </div>
+    </section>
+
+    <!-- Остальное содержимое страницы -->
+    @RenderSection("Scripts", required: false)
+    @RenderBody()
+    <footer class="footer">
+        <div class="footer_content">
+            <div class="footer_title">
+                <div class="footer_logo">Logo</div>
+                <div class="footer_links">
+                    <a href="#" class="footer_link">Link One</a>
+                    <a href="#" class="footer_link">Link Two</a>
+                    <a href="#" class="footer_link">Link Three</a>
+                    <a href="#" class="footer_link">Link Four</a>
+                    <a href="#" class="footer_link">Link Five</a>
+                </div>
+                <div class="footer_contact">
+                    <a href="#" class="footer_contact_A face">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                    <a href="#" class="footer_contact_A ins">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                    <a href="#" class="footer_contact_A ws">
+                        <ion-icon name="logo-whatsapp"></ion-icon>
+                    </a>
+                    <a href="#" class="footer_contact_A yt">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="footer_block"></div>
+            <div class="footer_end">
+                <div class="footer_end_link">© 2024 Relume. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+    <!-- Включение скриптов -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/js/scrpt1.js"></script>
+
+</body>
+</html>

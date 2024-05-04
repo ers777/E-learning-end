@@ -1,0 +1,388 @@
+﻿@model IEnumerable<WebApplication2.Models.CourseViewModel>
+
+@{
+    var course = ViewBag.Courses;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<section class="">
+    <div class="promo__content">
+        <!-- <div class="promo_text">
+            <div class="promo__title">Short heading here</div>
+            <div class="promo__des">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</div>
+        </div> -->
+    </div>
+</section>
+<section class="layout-96">
+    <div class="ly96_content">
+        <div class="ly96__lower_content">
+            <div class="ly96__title">
+                <div class="ly96__header1">Simplify</div>
+                <div class="ly96__header2">Unlock Your Learning Potential with Our Platform</div>
+            </div>
+            <div class="ly96__descr">
+                <div class="ly96__text">Our platform provides a comprehensive and interactive learning experience for both lecture and laboratory courses. With easy navigation and organization of course materials, personalized user profiles, and course difficulty segmentation, our platform is designed to enhance your learning journey. Start exploring today!</div>
+                <div class="ly96__btn">
+                    <button class="ly96__LM">Learn More</button>
+                    <a href="#" class="ly96__S_up">Sign Up ></a>
+                </div>
+            </div>
+        </div>
+        <div class="promo_video">
+            <video width="80%" height="80%" src="video/video.mp4" poster="img/3.2 poster.png"></video>
+            <div class="promo__play">
+                <div>
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                Watch the video
+            </div>
+        </div>
+    </div>
+</section>
+<section class="blog-5">
+    <div class="blog-5_content">
+
+        <div class="b5__title">
+            <div class="b5__t1">Courses</div>
+            <div class="b5__t2">Discover Our Featured Courses</div>
+            <div class="b5__t3">Explore our hand-picked selection of top courses.</div>
+        </div>
+        <div class="b5__descr">
+            <div class="b5__d_img">
+                @* <img src="img/def_img2.jpg" alt="" class="b5__d_img"> *@
+                <img src="@course[0].Img" alt="Course Banner" class="b5__d_img" height="300px" width="480px">
+
+            </div>
+            <div class="b5__d_content">
+                <div class="b5__d_t1 b5__d_t">All</div>
+                <div class="b5__d_t2 b5__d_t">@course[0].Name  @* Introduction to Web Development *@</div>
+                <div class="b5__d_t3 b5__d_t">@course[0].Description</div>
+                <div class="b5__desr_person">
+                    <img src="img/def_img2.jpg" alt="" class="b5__desr_person_img">
+                    @*                     <img src="@course[0].Img" alt="Course Banner" class="b5__desr_person_img">
+                    *@                    <div>
+                        <div class="b5__p_name b5__d_t">@course[0].Author</div>
+                        <div class="b5__p_date b5__d_t">11 Jan 2024 • 5 min read</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="b5__categ">
+            <ul class="b5__categ_content">
+                <li class="b5__categ_content_item"><a href="#">View all</a></li>
+                <li class="b5__categ_content_item"><a href="#"> Category ones</a></li>
+                <li class="b5__categ_content_item"><a href="#">Category two</a></li>
+                <li class="b5__categ_content_item"><a href="#">Category three</a></li>
+                <li class="b5__categ_content_item"><a href="#">Category four</a></li>
+
+            </ul>
+        </div>
+
+        <div class="b5__content">
+            @{
+                @foreach (var courses in course)
+                {
+                    // <li>@courses.Author</li>
+                    <div class="b5__content__item">
+                        <a class="b5__content__item__a " href="@Url.Action("Privacy", "Home", new { courseId = courses.Id })">
+                            <div class="b5__content__item_img">
+                                <img src="@courses.Img" alt="" class="b5__d_img1">
+                            </div>
+                            <div class="b5__content__item_content">
+                                <div class="b5__content__item_t1 b5__content__item_t">@courses.Tags</div>
+                                <div class="b5__content__item_t2 b5__content__item_t">@courses.Name</div>
+                                <div class="b5__content__item_t3 b5__content__item_t">@courses.Description</div>
+                                <div class="b5__content__item__desr_person">
+                                    <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+                                    <div>
+                                        <div class="b5__content__item__p_name b5__content__item__d_t">@courses.Author</div>
+                                        <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2024 • 5 min read</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            }
+
+
+
+            @*             <div class="b5__content__item">
+            <div class="b5__content__item_img">
+            <img src="img/def_img2.jpg" alt="" class="b5__d_img1">
+            </div>
+            <div class="b5__content__item_content">
+            <div class="b5__content__item_t1 b5__content__item_t">Mobile</div>
+            <div class="b5__content__item_t2 b5__content__item_t">Android App Development</div>
+            <div class="b5__content__item_t3 b5__content__item_t">Build your own Android apps and become a mobile developer.</div>
+            <div class="b5__content__item__desr_person">
+            <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+            <div>
+            <div class="b5__content__item__p_name b5__content__item__d_t">John Doe</div>
+            <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            <div class="b5__content__item">
+            <div class="b5__content__item_img">
+            <img src="img/def_img2.jpg" alt="" class="b5__d_img1">
+            </div>
+            <div class="b5__content__item_content">
+            <div class="b5__content__item_t1 b5__content__item_t">Design</div>
+            <div class="b5__content__item_t2 b5__content__item_t">Graphic Design Fundamentals</div>
+            <div class="b5__content__item_t3 b5__content__item_t">Learn the principles of graphic design and create stunning visuals.</div>
+            <div class="b5__content__item__desr_person">
+            <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+            <div>
+            <div class="b5__content__item__p_name b5__content__item__d_t">John Doe</div>
+            <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            <div class="b5__content__item">
+            <div class="b5__content__item_img">
+            <img src="img/def_img2.jpg" alt="" class="b5__d_img1">
+            </div>
+            <div class="b5__content__item_content">
+            <div class="b5__content__item_t1 b5__content__item_t">Data</div>
+            <div class="b5__content__item_t2 b5__content__item_t">Introduction to Data Science</div>
+            <div class="b5__content__item_t3 b5__content__item_t">Learn the fundamentals of data science and analysis.</div>
+            <div class="b5__content__item__desr_person">
+            <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+            <div>
+            <div class="b5__content__item__p_name b5__content__item__d_t">John Doe</div>
+            <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            <div class="b5__content__item">
+            <div class="b5__content__item_img">
+            <img src="img/def_img2.jpg" alt="" class="b5__d_img1">
+            </div>
+            <div class="b5__content__item_content">
+            <div class="b5__content__item_t1 b5__content__item_t">Business</div>
+            <div class="b5__content__item_t2 b5__content__item_t">Entrepreneurship 101</div>
+            <div class="b5__content__item_t3 b5__content__item_t">Start your own business and become a successful entrepreneur.</div>
+            <div class="b5__content__item__desr_person">
+            <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+            <div>
+            <div class="b5__content__item__p_name b5__content__item__d_t">John Doe</div>
+            <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+            <div class="b5__content__item">
+            <div class="b5__content__item_img">
+            <img src="img/def_img2.jpg" alt="" class="b5__d_img1">
+            </div>
+            <div class="b5__content__item_content">
+            <div class="b5__content__item_t1 b5__content__item_t">All</div>
+            <div class="b5__content__item_t2 b5__content__item_t">Introduction to Web Development</div>
+            <div class="b5__content__item_t3 b5__content__item_t">Learn the basics of web development and build your first website.</div>
+            <div class="b5__content__item__desr_person">
+            <img src="img/def_img2.jpg" alt="" class="b5__content__item__desr_person_img">
+            <div>
+            <div class="b5__content__item__p_name b5__content__item__d_t">John Doe</div>
+            <div class="b5__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+            </div>
+
+            </div>
+            </div>
+            </div> *@
+        </div>
+    </div>
+
+</section>
+<section class="blog_35">
+    <div class="b_35">
+        <div class="b_35__title">
+            <div class="b_35__tt1">Courses</div>
+            <div class="b_35__tt2">Explore Our Course Catalog</div>
+            <div class="b_35__tt3">Browse our selection of courses categorized by difficulty.</div>
+        </div>
+        <div class="b_35__content">
+            <div class="b_35__c_item">
+                <div class="b35__content__item_img">
+                    <img src="img/def_img2.jpg" alt="" class="b35__d_img1">
+                </div>
+                <div class="b35__content__item_content">
+                    <div class="b35__content__item_t1 b35__content__item_t">Web</div>
+                    <div class="b35__content__item_t2 b35__content__item_t">Introduction to Programming</div>
+                    <div class="b35__content__item_t3 b35__content__item_t">Learn how to create beautiful and responsive web pages.</div>
+                    <div class="b35__content__item__desr_person">
+                        <img src="img/def_img2.jpg" alt="" class="b35__content__item__desr_person_img">
+                        <div>
+                            <div class="b35__content__item__p_name b5__content__item__d_t">Jane Smith</div>
+                            <div class="b53__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="b_35__c_item">
+                <div class="b35__content__item_img">
+                    <img src="img/def_img2.jpg" alt="" class="b35__d_img1">
+                </div>
+                <div class="b35__content__item_content">
+                    <div class="b35__content__item_t1 b35__content__item_t">Web</div>
+                    <div class="b35__content__item_t2 b35__content__item_t">Web Development Basics</div>
+                    <div class="b35__content__item_t3 b35__content__item_t">Learn how to create beautiful and responsive web pages.</div>
+                    <div class="b35__content__item__desr_person">
+                        <img src="img/def_img2.jpg" alt="" class="b35__content__item__desr_person_img">
+                        <div>
+                            <div class="b35__content__item__p_name b5__content__item__d_t">Jane Smith</div>
+                            <div class="b53__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="b_35__c_item">
+                <div class="b35__content__item_img">
+                    <img src="img/def_img2.jpg" alt="" class="b35__d_img1">
+                </div>
+                <div class="b35__content__item_content">
+                    <div class="b35__content__item_t1 b35__content__item_t">Web</div>
+                    <div class="b35__content__item_t2 b35__content__item_t">Mastering HTML and CSS</div>
+                    <div class="b35__content__item_t3 b35__content__item_t">Learn how to create beautiful and responsive web pages.</div>
+                    <div class="b35__content__item__desr_person">
+                        <img src="img/def_img2.jpg" alt="" class="b35__content__item__desr_person_img">
+                        <div>
+                            <div class="b35__content__item__p_name b5__content__item__d_t">Jane Smith</div>
+                            <div class="b53__content__item__p_date b5__content__item__d_t">11 Jan 2022 • 5 min read</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="b_35__btn">
+            <button class="b_35__btn1">View all</button>
+        </div>
+    </div>
+</section>
+<section class="ly_219">
+    <div class="ly219__content">
+        <div class="ly_219_photo">
+            <img class="ly_219_photo1" src="img/def_img1.jpeg" alt="">
+        </div>
+        <div class="ly_219_block1">
+            <div class="ly_219_block"></div>
+
+        </div>
+        <div class="ly_219_con">
+            <div class="ly_219_con_Item">
+                <div class="ly_219_con_title">
+                    Interactive Lectures and Labs
+                </div>
+                <div class="ly_219_con_text">
+                    Engage in interactive lectures and practical laboratory exercises to enhance your learning experience.
+                </div>
+            </div>
+            <div class="ly_219_con_Item">
+                <div class="ly_219_con_title">
+                    User-Friendly Interface
+                </div>
+                <div class="ly_219_con_text">
+                    Our website is designed with a user-friendly interface, making it easy to navigate and access course materials.
+                </div>
+            </div>
+            <div class="ly_219_con_Item">
+                <div class="ly_219_con_title">
+                    Categorized Courses
+                </div>
+                <div class="ly_219_con_text">
+                    Courses are categorized based on difficulty levels, allowing you to find the right course for your skill level and learning objectives.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="FAQ3">
+    <div class="FAQ3_content">
+        <div class="FAQ3_title">
+            <div class="FAQ3_title_t1">Common</div>
+            <div class="FAQ3_title_t2">Find answers to the most frequently asked questions about our platform.</div>
+            <button class="FAQ3_title_btn">Contact Us</button>
+        </div>
+        <div class="FAQ3_desr">
+            <div class="FAQ3_desr_ques">
+                <div class="FAQ3_d_q_title">
+                    <div class="FAQ3_d_q_t_t">How do I get started?</div>
+                    <img class="FAQ3_d_q_t_btn" src="" alt="">
+                </div>
+                <div class="FAQ3_d_q_text">To get started, simply create an account and browse through our available courses. You can enroll in a course by clicking on the 'Enroll' button and start learning immediately.</div>
+            </div>
+            <div class="FAQ3_desr_ques">
+                <div class="FAQ3_d_q_title">
+                    <div class="FAQ3_d_q_t_t">How can I track my progress?</div>
+                    <img class="FAQ3_d_q_t_btn" src="" alt="">
+                </div>
+                <div class="FAQ3_d_q_text">You can track your progress by accessing your user profile. From there, you will be able to see the courses you have enrolled in, your completion status, and any achievements you have earned.</div>
+            </div>
+            <div class="FAQ3_desr_ques">
+                <div class="FAQ3_d_q_title">
+                    <div class="FAQ3_d_q_t_t">How can I contact support?</div>
+                    <img class="FAQ3_d_q_t_btn" src="" alt="">
+                </div>
+                <div class="FAQ3_d_q_text">If you have any questions or need assistance, you can reach out to our support team through the 'Contact Us' page. We are available to help you with any issues or concerns you may have.</div>
+            </div>
+            <div class="FAQ3_desr_ques">
+                <div class="FAQ3_d_q_title">
+                    <div class="FAQ3_d_q_t_t">How do I access course materials?</div>
+                    <img class="FAQ3_d_q_t_btn" src="" alt="">
+                </div>
+                <div class="FAQ3_d_q_text">Once you have enrolled in a course, you will have access to all the course materials. Simply navigate to the course page and you will find the lectures, laboratory exercises, and any additional resources provided by the instructor.</div>
+            </div>
+            <div class="FAQ3_desr_ques">
+                <div class="FAQ3_d_q_title">
+                    <div class="FAQ3_d_q_t_t">How are courses categorized?</div>
+                    <img class="FAQ3_d_q_t_btn" src="" alt="">
+                </div>
+                <div class="FAQ3_d_q_text">Courses are categorized based on difficulty levels, such as Basic, Intermediate, and Advanced. This allows users to easily find courses that match their skill level and learning objectives.</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="Test_Sect">
+    <div class="Test_Sect_content">
+        <div class="Test_Sect_title">
+            <div class="Test_Sect_title1">Customer testimonials</div>
+            <div class="Test_Sect_title2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+        <div class="Test_Sect_desr">
+            <div class="Test_Sect_dc">
+                <div class="Test_Sect_star"><img class="Test_Sect_star_img" src="img/stars.jpg" alt=""></div>
+                <div class="Test_Sect_text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</div>
+                <div class="Test_Sect_person">
+                    <img class="Test_Sect_person_img" src="img/def_img1.jpeg" alt="">
+                    <div class="Test_Sect_person_FIO">Name Surname</div>
+                </div>
+            </div>
+            <div class="Test_Sect_dc">
+                <div class="Test_Sect_star"><img class="Test_Sect_star_img" src="img/stars.jpg" alt=""></div>
+                <div class="Test_Sect_text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</div>
+                <div class="Test_Sect_person">
+                    <img class="Test_Sect_person_img" src="img/def_img1.jpeg" alt="">
+                    <div class="Test_Sect_person_FIO">Name Surname</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

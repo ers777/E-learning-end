@@ -1,0 +1,185 @@
+﻿@model WebApplication2.Models.CourseViewModel
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    int count_test = 1;
+    int count_in = 1;
+
+}
+
+
+
+<section class="Courses_title_block">
+    <div class="Ctb_header">
+        <div class="Ctb_header_img">
+            <img src="@Model.Img" alt="111" class="Ctb_header_img">
+        </div>
+        <div class="Ctb_header_img_content">
+            <div class="Ctb_header_content_t1 Ctb_header_content_t">@Model.Tags</div>
+            <div class="Ctb_header_content_t2 Ctb_header_content_t">@Model.Name</div>
+            <div class="Ctb_header_content_t3 Ctb_header_content_t">@Model.Description</div>
+            <div class="Ctb_header_content_person">
+                <img src="~/img/def_img2.jpg" alt="" class="Ctb_header_content_person_img">
+                <div>
+                    <div class="Ctb_header_c_per_name Ctb_header_content_p_t">@Model.Author</div>
+                    <div class="Ctb_header_c_per_date Ctb_header_content_p_t">11 Jan 2022 • 5 min read</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="Video_list">
+    <div class="videolist_content">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+        <img src="~/img/def_img2.jpg" alt="img/def_img2.jpg" class="videolist_content_img">
+
+    </div>
+</section>
+<section>
+    <div class="gg">
+        <nav class="spoilers-menu">
+            @{
+                int count = 1;
+                foreach (var chapter in Model.Chapters)
+                {
+                    <a class="spoiler-link" href="@($"#sp{count}")">@count.ToString() бөлім</a>
+                    count++;
+                }
+                <a class="spoiler-link test" href="#Test">Тестілеу</a>
+                <a class="spoiler-link test" href="#Labss">Labs</a>
+
+            }
+            @*             <a class="spoiler-link" href="#sp1">Spoiler 1</a>
+            *@@*             <a class="spoiler-link" href="#sp2">Spoiler 2</a>
+            <a class="spoiler-link" href="#sp3">Spoiler 3</a> *@
+        </nav>
+
+        <div class="spoilers">
+            @{
+                count_in = 1;
+
+                foreach (var chapter in Model.Chapters)
+                {
+                    int count_Iin = 1, count_Iin11 = 1;
+
+                    <div class="spoiler" id="@($"sp{count_in}")">
+                        <div class="in">
+                            @foreach (var content in chapter.Content)
+                            {
+                                <a class="spoiler-link_in" href="@($"#spp{count_in}_{count_Iin11}")">@count_Iin11</a>
+                                count_Iin11++;
+                            }
+
+                            @foreach (var content in chapter.Content)
+                            {
+
+                                <div class="iin">
+                                    <div class="spoiler_in" id="@($"spp{count_in}_{count_Iin}")">
+                                        <h1 class="spoiler__title">@count_Iin - ші бөлімше</h1>
+
+                                        <div class="content">
+                                            <h5>@content.Heading</h5>
+                                            <p>@Html.Raw(content.Description.Markdown)</p>
+                                            <div>@Html.Raw(content.Description.Html)</div>
+                                            @if (content.Output != null)
+                                            {
+                                                <div>
+                                                    <h6>Output:</h6>
+                                                    <p>@Html.Raw(content.Output.Markdown)</p>
+                                                    <div>@Html.Raw(content.Output.Html)</div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                count_Iin++;
+                            }
+                            <!-- Стрелки для навигации -->
+                            <div class="navigation-arrows">
+                                <a href="#" class="arrow" id="arrow-back">
+                                    <ion-icon class="arrow1" name="arrow-back-circle-outline"></ion-icon>
+                                </a>
+                                <a href="#" class="arrow" id="arrow-forward">
+                                    <ion-icon class="arrow1" name="arrow-forward-circle-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                        @{
+                            count_in++;
+                            count_test = count_in;
+                        }
+                    </div>
+                }
+            }
+            <div class="spoiler" id="Test">
+                <div class="in">
+                    @{
+                        int count_Iin1 = 1;
+
+                        foreach (var content in Model.Test)
+                        {
+                            <a class="spoiler-link_in" href="@($"#spp{count_test}_{count_Iin1}")">@count_Iin1</a>
+                            count_Iin1++;
+                        }
+
+                        foreach (var test in Model.Test)
+                        {
+                            <div class="spoiler_in" id="@($"spp{count_test}_{count_Iin1}")">
+                                <div class="question" data-correct-answer="@test.RightAnw">
+                                    <p>@test.Question</p>
+                                    <ul class="options">
+                                        @{
+                                            int count_Iin2 = 1;
+                                            foreach (var anw in test.Ansswer)
+                                            {
+                                                <li><input type="radio" name="question" value="@anw" id="@($"option{count_Iin2}")"><label for="@($"option{count_Iin2}")">@anw</label></li>
+                                                count_Iin2++;
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <button class="Submit_btn" onclick="checkAnswer('@($"spp{count_test}_{count_Iin1}")')">Submit</button>
+                                
+                                    <button class="Submit_btn" onclick="endTest()">END</button>
+                                
+                                <div id="result"></div>
+                            </div>
+                            count_Iin1++;
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="spoiler" id="Labss">
+                <div class="Labs">
+
+                    @foreach (var lab in Model.Lab)
+                    {
+                        <a href="@lab" download><button class="btn_in">Download</button></a>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+
+
